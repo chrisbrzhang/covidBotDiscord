@@ -1,15 +1,12 @@
 import discord
 import csv
-import importlib
+import Corona_Reader
 from discord.ext import commands
-
-moduleName = input('Corona_Reader.py')
-
 
 client = commands.Bot(command_prefix = '!')
 
-##f = open('covidBOT_data.csv')
-##csv_f = csv.reader(f)
+f = open('covidBOT_data.csv')
+csv_f = csv.reader(f)
 
 @client.event
 async def on_ready():
@@ -30,6 +27,9 @@ async def on_message(message):
         return
 
         if message.content.startswith('!IM'): ##need the csv file
+            Corona_Reader.csvGenerator()
+            await f = open('covidBOT_data.csv')
+            await csv_f = csv.reader(f)
             msg = 'Current number of cases are:\n'
             await channel.send(msg)
             for row in csv_f:
