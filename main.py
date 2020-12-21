@@ -1,11 +1,15 @@
 import discord
 import csv
+import importlib
 from discord.ext import commands
+
+moduleName = input('Corona_Reader.py')
+
 
 client = commands.Bot(command_prefix = '!')
 
-f = open('covidBOT_data.csv')
-csv_f = csv.reader(f)
+##f = open('covidBOT_data.csv')
+##csv_f = csv.reader(f)
 
 @client.event
 async def on_ready():
