@@ -19,7 +19,7 @@ async def on_member_leave(member):
 
 
 @client.event
-async def on_message(message):
+async def on_message(channel, message):
     if message.author == client.user:
         return
 
@@ -27,7 +27,7 @@ async def on_message(message):
         Corona_Reader.csvGenerator()
         f = open('covidNumbers.csv')
         csv_f = csv.reader(f)
-        msg = 'Current number of cases are:\n'
+        msg = 'Current number of cases are: \n'
         await channel.send(msg)
         for row in csv_f:
             await channel.send(('send the csv content'))
