@@ -5,9 +5,6 @@ from discord.ext import commands
 
 client = commands.Bot(command_prefix = '!')
 
-f = open('covidBOT_data.csv')
-csv_f = csv.reader(f)
-
 @client.event
 async def on_ready():
     print('Bot is ready')
@@ -26,23 +23,23 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-        if message.content.startswith('!IM'): ##need the csv file
-            Corona_Reader.csvGenerator()
-            await f = open('covidBOT_data.csv')
-            await csv_f = csv.reader(f)
-            msg = 'Current number of cases are:\n'
-            await channel.send(msg)
-            for row in csv_f:
-                await channel.send(('send the csv content'))
-        else:
-            await message.delete()
+    if message.content.startswith('!IM'):
+        Corona_Reader.csvGenerator()
+        f = open('covidNumbers.csv')
+        csv_f = csv.reader(f)
+        msg = 'Current number of cases are:\n'
+        await channel.send(msg)
+        for row in csv_f:
+            await channel.send(('send the csv content'))
+    else:
+        await message.delete()
 
             
 
 
-@client.command()
-async def IM(ctx, arg):
-    await ctx.send('https://www.worldometers.info/coronavirus/country/' + arg)
+##@client.command()
+##async def IM(ctx, arg):
+    ##await ctx.send('https://www.worldometers.info/coronavirus/country/' + arg)
 
 
 
