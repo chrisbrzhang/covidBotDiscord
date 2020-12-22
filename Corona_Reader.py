@@ -15,7 +15,7 @@ def csvGenerator():
     options = Options()
     options.add_argument("--headless")
 
-    driver = webdriver.Chrome("C:\\Users\doodo\\Documents\\Python Scripts\\Chrome_Driver\\chromedriver",options=options)
+    driver = webdriver.Chrome("C:\WebDriver\chromedriver",options=options)
 
     country=[]#List to store name of the country
     Total_Cases=[] #List to store name of the product
