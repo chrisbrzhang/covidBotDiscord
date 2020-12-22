@@ -66,4 +66,4 @@ def csvGenerator():
 
 # df = pd.DataFrame({'Country':country,'Price':prices,'Rating':ratings}) 
     df = pd.DataFrame({'Country':country,'Total_Cases': Total_Cases,'New_Cases':New_Cases,'Total_Death':Total_Death }) 
-    df.to_csv('products.csv', index=False, encoding='utf-8')
+    df.to_csv('covidNumbers.csv', index=False, encoding='utf-8') ##file created
