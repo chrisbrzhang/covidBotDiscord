@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sun Dec 20 12:11:39 2020
-
-@author: doodo
-"""
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import pandas as pd 
@@ -15,7 +10,7 @@ def csvGenerator():
     options = Options()
     options.add_argument("--headless")
 
-    driver = webdriver.Chrome("C:\WebDriver\chromedriver",options=options)
+    driver = webdriver.Chrome("Please insert chrome driver directory here",options=options)
 
     country=[]#List to store name of the country
     Total_Cases=[] #List to store name of the product
@@ -59,11 +54,3 @@ def csvGenerator():
 # line_number = soup.split('\n')
 # if any():
     
-    
-    
-
-
-
-# df = pd.DataFrame({'Country':country,'Price':prices,'Rating':ratings}) 
-    df = pd.DataFrame({'Country':country,'Total_Cases': Total_Cases,'New_Cases':New_Cases,'Total_Death':Total_Death }) 
-    df.to_csv('covidNumbers.csv', index=False, encoding='utf-8') ##file created
